@@ -157,6 +157,3 @@ DEPENDENCIES
   middleman-blog
   middleman-compass (>= 4.0.0)
   middleman-livereload
-
-BUNDLED WITH
-   1.11.2
