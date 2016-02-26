@@ -17,6 +17,10 @@ activate :i18n,
 
 activate :autoprefixer
 
+activate :syntax, line_numbers: true
+
+set :markdown_engine, :kramdown
+
 set :haml, ugly: true, format: :html5
 
 activate :blog do |blog|
@@ -37,6 +41,7 @@ require 'font-awesome-sass'
 
 configure :build do
   ignore 'readme.md'
+  ignore 'source/stylesheets/github-syntax.css.erb'
   activate :asset_hash
   activate :minify_javascript
   activate :minify_css
