@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
+<title>Using Travis to deploy Middleman on Github pages</title>
+<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400italic,700italic,400,700" rel="stylesheet" />
+<link href="/stylesheets/sport-font/flaticon-d36bc743.css" rel="stylesheet" />
+<link href="/stylesheets/site-c7c1ca07.css" rel="stylesheet" />
+</head>
+<body class='blog blog_2016-02-08-using-travis-to-deploy-middleman-on-github-pages'>
+<header class='nav-header' data-anchor-target='#intro-wrap' data-top-bottom='transform:translateY(-150px)' data-top='transform:translateY(0px);' id='nav-header'>
+<div class='container'>
+<div class='row'>
+<div class='col-md-12'>
+<nav class='navbar'>
+<a class='navbar-brand' href='/index.html'>
+<div class='grm'></div>
+</a>
+<ul class='nav navbar-nav pull-xs-right'>
+<li class='nav-item'>
+<a class='nav-link' href='/posts.html'>
+Blog
+</a>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='/about.html'>
+About
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</header>
+
+<div class='intro-wrap post-intro-wrap' id='intro-wrap' style='background-image: url("/images/posts/2016-02-08-using-travis-to-deploy-middleman-on-github-pages/header-d06a1dd5.jpg")'>
+<div class='caption'>
+<h1>
+Using Travis to deploy Middleman on Github pages
+</h1>
+</div>
+</div>
+
+<div class='container blog-post'>
+<div class='row'>
+<article class='col-md-8'>
+<div class='row'>
+<div class='col-md-12'>
+<div class='meta-author'>
+Posted by
+<a href="about.html">Jérémy Jousse</a>
+on
+February 08, 2016
+</div>
+<p>I recently created a blog scaffold for a friend of my using Middleman.
+Using <a target="_blank" href="https://pages.github.com/">Github pages</a> in addition
+to Middleman allows my friend to host his blog without any charge.
+This is great but my friend is not a geek, and he does not hold back all the
+Middleman boring commands to commit, generate, and deploy his blog.</p>
+
+<p>I finaly found <a target="_blank" href="http://prose.io/">prose.io</a> a content editor
+for GitHub designed for managing websites. With a little my time of configuring
+<a target="_blank" href="http://prose.io/">prose.io</a>, my friend has finally a GUI
+editor to handle his Middleman blog.</p>
+
+<p>The last challenge was to automate the build and deployment of his blog after
+each commit.</p>
+
+<p></p>
+
+<p>The middleman extention directory list <a target="_blank" href="https://directory.middlemanapp.com/#/extensions/deployment">8 deployment gems</a>, I've chosen <a target="_blank" href="https://github.com/middleman-contrib/middleman-deploy">middleman-deploy</a> which is an official contribution form Middleman team.
+This gem is also extermly simple to use with github pages.</p>
+
+<h3 id="setup-middleman">Setup Middleman</h3>
+
+<p>First add the middleman-deploy gem to your Gemfile</p>
+
+<div class="highlight ruby"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="n">gem</span> <span class="s1">'middleman-deploy'</span>
+</pre></td></tr></tbody></table>
+</div>
+
+<p>Then activate the deploy pluggin in Middleman config.rb file</p>
+
+<div class="highlight ruby"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4</pre></td><td class="code"><pre><span class="n">activate</span> <span class="ss">:deploy</span> <span class="k">do</span> <span class="o">|</span><span class="n">deploy</span><span class="o">|</span>
+  <span class="n">deploy</span><span class="p">.</span><span class="nf">deploy_method</span> <span class="o">=</span> <span class="ss">:git</span>
+  <span class="n">deploy</span><span class="p">.</span><span class="nf">build_before</span> <span class="o">=</span> <span class="kp">true</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table>
+</div>
+
+<p>This activates the deploy pluggin to deploy using github pages. Find the complet middleman-deploy documentation on his <a target="_blank" href="https://github.com/middleman-contrib/middleman-deploy">Github project</a></p>
+
+<h3 id="setup-travis">Setup Travis</h3>
+
+<p>You can now log to Travis, then activate Travis integration to you project.
+<img alt="My Photo" class="img-fluid" src="/images/posts/2016-02-08-using-travis-to-deploy-middleman-on-github-pages/enable-your-project-for-travis-build-9bf0682f.jpg" /></p>
+
+<h3 id="connect-travis-to-github">Connect Travis to Github</h3>
+
+<p>Now you have to generate a Github Personal Access Token form your <a target="_blank" href="https://github.com/settings/tokens">Github Tokens Settings page</a>
+<img alt="My Photo" class="img-fluid" src="/images/posts/2016-02-08-using-travis-to-deploy-middleman-on-github-pages/generate-a-github-personal-access-token-06975553.jpg" /></p>
+
+<p>Then add your Github Personal Access Token to your Travis project settings using Environment Variables.
+Your Github Personal Access Token will be "GH_TOKEN" Environment Variable (do not enable the "Display value in build log" option for this variable !).
+<img alt="My Photo" class="img-fluid" src="/images/posts/2016-02-08-using-travis-to-deploy-middleman-on-github-pages/add-the-personal-token-to-travis-conf-b3ed602d.jpg" /></p>
+
+<h3 id="add-travis-config-file-to-middleman">Add Travis config file to Middleman</h3>
+
+<p>Now you can create a .travis.yml file.</p>
+
+<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9</pre></td><td class="code"><pre>language: ruby
+rvm:
+  - 2.3.0
+cache: bundler
+script:
+  - git config --global user.name '${GIT_NAME}'
+  - git config --global user.email '${GIT_NAME}'
+  - git remote set-url origin https://&lt;your-github-user&gt;:${GH_TOKEN}@github.com/&lt;your-github-user&gt;/&lt;your-github-repository&gt;.git
+  - bundle exec middleman deploy
+</pre></td></tr></tbody></table>
+</div>
+
+<p>You now only have to commit and push your updates to see your Middleman website magically updated.</p>
+
+<h3 id="conclusion">Conclusion</h3>
+
+<p>I found this so magic that I replay that configuration on this website.
+If you missed something you can have a look at my <a target="_blank" href="https://github.com/jeremyjousse/jeremyjousse/">Middleman project</a>.</p>
+
+<div class='col-md-12'>
+<div id='disqus_thread'>
+<script>
+  /**
+  * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+  */
+  /*
+  var disqus_config = function () {
+  this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+  this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+  };
+  */
+  (function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+  
+  s.src = '//jeremyjousse.disqus.com/embed.js';
+  
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>
+Please enable JavaScript to view the
+<a href='https://disqus.com/?ref_noscript' rel='nofollow'>comments powered by Disqus.</a>
+</noscript>
+</div>
+<script src="https://code.jquery.com/jquery-2.2.0.js"></script>
+<script src="/javascripts/all-5d425646.js"></script>
+</div>
+</div>
+</div>
+</article>
+<div class='col-md-4'>
+<div class='container widget-author'>
+<div class='row'>
+<aside class='col-md-12 text-xs-center'>
+<img class="img-rounded author-image" src="/images/jeremy-jousse-cv-picture-f1dbe301.jpg" />
+<h4>
+Jérémy Jousse
+</h4>
+<p>
+Passionate web developer
+</p>
+</aside>
+</div>
+<div class='row'>
+<aside class='col-md-12 text-xs-left'>
+<h3>
+Categories
+</h3>
+<div class='label label-default'>
+Dev
+</div>
+</aside>
+</div>
+<div class='row'>
+<aside class='col-md-12 text-xs-left'>
+<h3>
+Tags
+</h3>
+<div class='label label-default'>
+middleman
+</div>
+<div class='label label-default'>
+travis
+</div>
+<div class='label label-default'>
+github
+</div>
+</aside>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<footer class='footer'>
+<div class='container'>
+<div class='row'>
+<div class='col-md-10 text-xs-right'>
+Designed and coded by @jeremyjousse in
+<br>
+Source code available on
+<a href='https://github.com/jeremyjousse/jeremyjousse' target='_blank'>
+<span class='fa-stack fa-lg'>
+<i class='fa fa-circle fa-stack-2x'></i>
+<i class='fa fa-github fa-stack-1x fa-inverse'></i>
+</span>
+</a>
+</div>
+<div class='col-md-2'>
+<img class="ui image" src="/images/lille-tech-bfc3f9a9.png" />
+</div>
+</div>
+</div>
+</footer>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  
+  ga('create', 'UA-74379920-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+<script src="https://code.jquery.com/jquery-2.2.0.js"></script>
+<script src="https://cdn.jsdelivr.net/skrollr/0.6.30/skrollr.min.js"></script>
+<script src="/javascripts/all-5d425646.js"></script>
+</body>
+</html>

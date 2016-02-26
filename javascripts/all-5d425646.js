@@ -1,0 +1,1 @@
+function initSkrollr(){var e=!1;skrollr.init({forceHeight:!1,smoothScrolling:!1,render:function(){$("header").hasClass("skrollable-after")?e||(e=!0,$("header").addClass("fixed-header").css({display:"none"}).fadeIn(300)):(e=!1,$("header").removeClass("fixed-header"))}})}$(function(){initSkrollr(),$(".map").length&&googleMap()});

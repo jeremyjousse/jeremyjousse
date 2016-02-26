@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Blog Name</title>
+  <subtitle>Blog subtitle</subtitle>
+  <id>http://blog.url.com/</id>
+  <link href="http://blog.url.com/"/>
+  <link href="http://blog.url.com/feed.xml" rel="self"/>
+  <updated>2016-02-08T00:00:00+00:00</updated>
+  <author>
+    <name>Blog Author</name>
+  </author>
+  <entry>
+    <title>Using Travis to deploy Middleman on Github pages</title>
+    <link rel="alternate" href="http://blog.url.com/blog/2016-02-08-using-travis-to-deploy-middleman-on-github-pages.html"/>
+    <id>http://blog.url.com/blog/2016-02-08-using-travis-to-deploy-middleman-on-github-pages.html</id>
+    <published>2016-02-08T00:00:00+00:00</published>
+    <updated>2016-02-26T22:59:24+00:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;I recently created a blog scaffold for a friend of my using Middleman.
+Using &lt;a target="_blank" href="https://pages.github.com/"&gt;Github pages&lt;/a&gt; in addition
+to Middleman allows my friend to host his blog without any charge.
+This is great but my friend is not a geek, and he does not hold back all the
+Middleman boring commands to commit, generate, and deploy his blog.&lt;/p&gt;
+
+&lt;p&gt;I finaly found &lt;a target="_blank" href="http://prose.io/"&gt;prose.io&lt;/a&gt; a content editor
+for GitHub designed for managing websites. With a little my time of configuring
+&lt;a target="_blank" href="http://prose.io/"&gt;prose.io&lt;/a&gt;, my friend has finally a GUI
+editor to handle his Middleman blog.&lt;/p&gt;
+
+&lt;p&gt;The last challenge was to automate the build and deployment of his blog after
+each commit.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;The middleman extention directory list &lt;a target="_blank" href="https://directory.middlemanapp.com/#/extensions/deployment"&gt;8 deployment gems&lt;/a&gt;, I've chosen &lt;a target="_blank" href="https://github.com/middleman-contrib/middleman-deploy"&gt;middleman-deploy&lt;/a&gt; which is an official contribution form Middleman team.
+This gem is also extermly simple to use with github pages.&lt;/p&gt;
+
+&lt;h3 id="setup-middleman"&gt;Setup Middleman&lt;/h3&gt;
+
+&lt;p&gt;First add the middleman-deploy gem to your Gemfile&lt;/p&gt;
+
+&lt;div class="highlight ruby"&gt;&lt;table style="border-spacing: 0"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="gutter gl" style="text-align: right"&gt;&lt;pre class="lineno"&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;pre&gt;&lt;span class="n"&gt;gem&lt;/span&gt; &lt;span class="s1"&gt;'middleman-deploy'&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Then activate the deploy pluggin in Middleman config.rb file&lt;/p&gt;
+
+&lt;div class="highlight ruby"&gt;&lt;table style="border-spacing: 0"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="gutter gl" style="text-align: right"&gt;&lt;pre class="lineno"&gt;1
+2
+3
+4&lt;/pre&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;pre&gt;&lt;span class="n"&gt;activate&lt;/span&gt; &lt;span class="ss"&gt;:deploy&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;deploy&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;
+  &lt;span class="n"&gt;deploy&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;deploy_method&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;:git&lt;/span&gt;
+  &lt;span class="n"&gt;deploy&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;build_before&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kp"&gt;true&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;This activates the deploy pluggin to deploy using github pages. Find the complet middleman-deploy documentation on his &lt;a target="_blank" href="https://github.com/middleman-contrib/middleman-deploy"&gt;Github project&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id="setup-travis"&gt;Setup Travis&lt;/h3&gt;
+
+&lt;p&gt;You can now log to Travis, then activate Travis integration to you project.
+&lt;img alt="My Photo" class="img-fluid" src="/images/posts/2016-02-08-using-travis-to-deploy-middleman-on-github-pages/enable-your-project-for-travis-build-9bf0682f.jpg" /&gt;&lt;/p&gt;
+
+&lt;h3 id="connect-travis-to-github"&gt;Connect Travis to Github&lt;/h3&gt;
+
+&lt;p&gt;Now you have to generate a Github Personal Access Token form your &lt;a target="_blank" href="https://github.com/settings/tokens"&gt;Github Tokens Settings page&lt;/a&gt;
+&lt;img alt="My Photo" class="img-fluid" src="/images/posts/2016-02-08-using-travis-to-deploy-middleman-on-github-pages/generate-a-github-personal-access-token-06975553.jpg" /&gt;&lt;/p&gt;
+
+&lt;p&gt;Then add your Github Personal Access Token to your Travis project settings using Environment Variables.
+Your Github Personal Access Token will be "GH_TOKEN" Environment Variable (do not enable the "Display value in build log" option for this variable !).
+&lt;img alt="My Photo" class="img-fluid" src="/images/posts/2016-02-08-using-travis-to-deploy-middleman-on-github-pages/add-the-personal-token-to-travis-conf-b3ed602d.jpg" /&gt;&lt;/p&gt;
+
+&lt;h3 id="add-travis-config-file-to-middleman"&gt;Add Travis config file to Middleman&lt;/h3&gt;
+
+&lt;p&gt;Now you can create a .travis.yml file.&lt;/p&gt;
+
+&lt;div class="highlight plaintext"&gt;&lt;table style="border-spacing: 0"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="gutter gl" style="text-align: right"&gt;&lt;pre class="lineno"&gt;1
+2
+3
+4
+5
+6
+7
+8
+9&lt;/pre&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;pre&gt;language: ruby
+rvm:
+  - 2.3.0
+cache: bundler
+script:
+  - git config --global user.name '${GIT_NAME}'
+  - git config --global user.email '${GIT_NAME}'
+  - git remote set-url origin https://&amp;lt;your-github-user&amp;gt;:${GH_TOKEN}@github.com/&amp;lt;your-github-user&amp;gt;/&amp;lt;your-github-repository&amp;gt;.git
+  - bundle exec middleman deploy
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;You now only have to commit and push your updates to see your Middleman website magically updated.&lt;/p&gt;
+
+&lt;h3 id="conclusion"&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;I found this so magic that I replay that configuration on this website.
+If you missed something you can have a look at my &lt;a target="_blank" href="https://github.com/jeremyjousse/jeremyjousse/"&gt;Middleman project&lt;/a&gt;.&lt;/p&gt;
+</content>
+  </entry>
+</feed>
