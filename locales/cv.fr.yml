@@ -1,0 +1,94 @@
+---
+fr:
+  cv:
+    job_title: Chef de Pojet / DevOps
+    birth_date: Date de naissance
+    marital_status: Situation
+    marital_status_detail: Marié, deux enfants
+    citizenship: Nationalité
+    citizenship_detail: Fançais
+    phone: Téléphone
+    address: Adresse
+    download_cv: Télécharger le CV
+    since: Depuis
+    contact_me: Contactez moi
+    summary: |
+      • Responsable des systèmes d’informations chez Arobas Music.
+      • Gérant et fondateur d’une société de services informatiques spécialisée
+      dans la création de logiciels de gestion commerciale d’agences
+      immobilières.
+    skills:
+      professional_skills: Compétences professionnelles
+      project_management: Gestion de projet
+      system_administration: Admin. système
+      ruby: Ruby / Ruby on Rails
+      php: PHP
+      html: HTML / CSS
+      javascript: Javascript / Node.js
+      behavior_driven_development: Behavior Driven Development
+      english: Anglais
+    experiences:
+      experiences: Expériences professionnelles
+      arobas2:
+        name: Arobas Music (Lille, France)
+        job: Responsable des systèmes d’information
+        detail: |
+          Gestion et réalisation des supports de
+          communications numériques de la société.
+          Installation et maintenance des serveurs
+          internes et héberges.
+      coevo:
+        name: CoEvo (Villneuve d'Ascq, France)
+        job: Gérant
+        detail: |
+          Développement, maintenance et évolution
+          d’un logiciel de gestion commerciale
+          d’agences immobilières.
+          Commercialisation et prospection
+      arobas:
+        name: Arobas Music (Roubaix, France)
+        job: Développeur Web
+        detail: |
+          Responsable des sites internet, des
+          moyens de paiement à distance.
+          Gestion du parc de serveurs et de postes
+          clients
+      forest:
+        name: Groupe Forest Immobilier (Marcq-en-Baroeul, France)
+        job: Chef de projet
+        detail: |
+          Réalisation d’un outil de gestion pour un
+          groupement d’agences immobilières.
+          Formation des collaborateurs à
+          l’informatique et à l’outil Internet.
+      aes:
+        name: AES (Roubaix, France)
+        job: Développeur Web
+        detail: |
+          Développement de site et logiciels.
+          Administration des serveurs dédiés.
+          Formation à la création de sites internet et
+          à l’utilisation d’internet
+      studup:
+        name: StudUp (Roubaix, France)
+        job: Webmaster
+        detail: |
+          Mise à jour et maintenance du site de
+          recrutement StudUp spécialisé dans les
+          stages et premier emploi.
+    educations:
+      education: Formation
+      ipra:
+        name: SUP T.C (Technicien supérieur des forces de vente)
+        location: IPRA, Roubaix
+        link: http://www.esva-cepreco.fr/formations/vendeur-conseiller-commercial.html
+      dut-gmp:
+        name: DUT GMP (Génie mécanique et productique)
+        location: IUT A, Villeneuve d'Ascq
+        link: http://iut-gmp.univ-lille1.fr/
+      bac:
+        name: Baccalauréat S - Mention assez bien
+        location: Lycée Raymond Queneau Villeneuve
+    interests:
+      interests: Centres d'intéret
+    contact_me: Contacts

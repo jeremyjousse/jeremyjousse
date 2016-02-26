@@ -1,0 +1,22 @@
+.container.widget-author
+  .row
+    %aside.col-md-12.text-xs-center
+      = image_tag 'jeremy-jousse-cv-picture.jpg', class: 'img-rounded author-image'
+      %h4
+        Jérémy Jousse
+      %p
+        = t(:passionate_web_developer, scope: 'about')
+  .row
+    %aside.col-md-12.text-xs-left
+      %h3
+        Categories
+      - categories(blog.articles).each do |category|
+        .label.label-default
+          = category
+  .row
+    %aside.col-md-12.text-xs-left
+      %h3
+        Tags
+      - tags(blog.articles).each do |tag|
+        .label.label-default
+          = tag

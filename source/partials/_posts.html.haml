@@ -1,0 +1,29 @@
+%section.blog-posts
+  - page_articles.each_with_index do |article, i|
+    .blog-post
+      .container
+        .row
+          %article.col-md-12
+            .row
+              .col-md-4
+                %a{href: article.url}
+                  %figure
+                    = image_tag 'posts/' + I18n.localize(article.date, format: :folder) + ' - ' + article.slug + '/hp.jpg', class: 'img-fluid img-rounded'
+              .col-md-8.text-xs-left
+                %h2
+                  = link_to article.title, article
+                .meta-author
+                  = t(:posted_by, scope: 'blog')
+                  = link_to 'Jérémy Jousse', 'about.html'
+                  = t(:on_date, scope: 'blog')
+                  = I18n.localize(article.date, format: :long)
+                = article.summary
+-# - if paginate && num_pages > 1
+-#   %p
+-#     Page #{page_number} of #{num_pages}
+-#   - if prev_page
+-#     %p= link_to 'Previous page', prev_page
+-# - if paginate
+-#   - if next_page
+-#     %p= link_to 'Next page', next_page
+-# = partial 'layouts/about'

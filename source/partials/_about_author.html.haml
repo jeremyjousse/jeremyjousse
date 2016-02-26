@@ -1,0 +1,12 @@
+%section.about-author#about-author
+  .container
+    .row
+      .col-md-2.col-md-offset-2
+        = image_tag 'jeremy-jousse-cv-picture.jpg', class: 'img-fluid img-circle'
+      .col-md-6
+        %h2
+          = t(:passionate_web_developer, scope: 'about')
+        %p
+          = t(:passionate_web_developer_detail, scope: 'about')
+        %a.btn.btn-primary-outline{ href: 'about.html' }
+          = t(:read_more_about_me, scope: 'about')

@@ -1,0 +1,11 @@
+@mixin ellipsis-truncate($lines-to-show) {
+  display: block;
+  display: -webkit-box;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  -webkit-line-clamp: $lines-to-show;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

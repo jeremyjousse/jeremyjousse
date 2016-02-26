@@ -1,0 +1,21 @@
+%section.hp-blog-posts#hp-blog-posts
+  .container
+    .row
+      .col-md-12.title
+        %h2
+          = t(:latest_posts, scope: 'blog')
+    .row
+      - blog.articles[0...3].each do |article|
+        .col-md-4.text-xs-center.blog-post
+          %a{ href: article.url }
+            = image_tag 'posts/' + I18n.localize(article.date, format: :folder) + ' - ' + article.slug + '/hp.jpg', class: 'img-rounded'
+          %h5
+            = article.title
+          .summary
+            = strip_tags(article.summary)
+          %a.btn.btn-primary-outline{ href: article.url }
+            = t(:read_the_post, scope: 'blog')
+    .row
+      .col-md-12.text-xs-center.hp-blog-all-posts
+        %a.btn.btn-primary{ href: 'posts.html' }
+          = t(:view_all_posts, scope: 'blog')

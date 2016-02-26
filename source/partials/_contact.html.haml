@@ -1,0 +1,56 @@
+%section
+  .container
+    .row
+      .col-md-5.col-md-offset-1
+        .row
+          .col-md-12.text-xs-center
+            %h3
+              = t(:feel_free_to_contact_me, scope: 'contact')
+          .col-md-12
+            .row
+              .col-md-2
+                %b
+                  = t(:email, scope: 'contact')
+              .col-md-10
+                jeremy.jousse@coevo.fr
+              .col-md-2
+                %b
+                  = t(:phone, scope: 'contact')
+              .col-md-10
+                +33 6 51 81 59 89
+              .col-md-12
+                %ul.social-block
+                  %li
+                    %a{}
+                      %span.fa-stack.fa-lg
+                        %i.fa.fa-circle.fa-stack-2x
+                        %i.fa.fa-twitter.fa-stack-1x.fa-inverse
+                  %li
+                    %a{ href: 'https://github.com/jeremyjousse', target: '_blank' }
+                      %span.fa-stack.fa-lg
+                        %i.fa.fa-circle.fa-stack-2x
+                        %i.fa.fa-github.fa-stack-1x.fa-inverse
+                  %li
+                    %a{}
+                      %span.fa-stack.fa-lg
+                        %i.fa.fa-circle.fa-stack-2x
+                        %i.fa.fa-mixcloud.fa-stack-1x.fa-inverse
+          .col-md-12
+            %form{:action => "https://getsimpleform.com/messages?form_api_token=a77aaf9110632e7c7a14fd4966f24490", :method => "post", class: 'ui form'}
+              %input{:name => "redirect_to", :type => "hidden", :value => "http://www.jousse.fr/thank-for-contact"}/
+              .form-group
+                .input-group
+                  .input-group-addon
+                    %i.fa.fa-user
+                  %input.form-control{ name: 'name', type: 'text', placeholder: 'Name' }/
+              .form-group
+                .input-group
+                  .input-group-addon
+                    %i.fa.fa-envelope
+                  %input.form-control{ name: 'email', type: 'email', placeholder: 'Email' }/
+              .form-group
+                %textarea.form-control{ name: 'message', type: 'text', rows: 3, placeholder: 'Your message' }= ""
+              %input{type: 'submit', value: t(:send_message, scope: 'contact'), class: 'btn btn-primary'}/
+      .col-md-5
+        #map_1.map{"data-color" => "aqua", "data-height" => "22.222", "data-img" => "images/shared/marker.png", "data-info" => "Based in Villeneuve d'Ascq, France", "data-maplat" => "50.6361986", "data-maplon" => "3.0862332", "data-mapzoom" => "5"}
+        %script{:src => "https://maps.googleapis.com/maps/api/js?sensor=false"}

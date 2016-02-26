@@ -1,0 +1,20 @@
+---
+fr:
+  time:
+    formats:
+      folder: "%Y-%m-%d"
+      long: "%d %B %Y"
+  date:
+    formats:
+      default: "%Y-%m-%d"
+      folder: "%Y-%m-%d"
+      short: "%b %d"
+      long: "%d %B %Y"
+  menu:
+    home_link: "/fr/index.html"
+    posts_link: "/fr/posts.html"
+    posts: Blog
+    about_link: "/fr/about.html"
+    about: A propos
+  intro:
+    devops_project_manager: DevOps / Chef de projets

@@ -1,0 +1,13 @@
+%footer.footer
+  .container
+    .row
+      .col-md-10.text-xs-right
+        = t(:designed_and_coded_by, scope: 'footer')
+        %br
+        = t(:source_code_available_on, scope: 'footer')
+        %a{ href: 'https://github.com/jeremyjousse/jeremyjousse', target: '_blank' }
+          %span.fa-stack.fa-lg
+            %i.fa.fa-circle.fa-stack-2x
+            %i.fa.fa-github.fa-stack-1x.fa-inverse
+      .col-md-2
+        = image_tag 'lille-tech.png', class: 'ui image'

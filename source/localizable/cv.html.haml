@@ -1,0 +1,104 @@
+---
+title: Jérémy Jousse
+---
+.ui.fluid.container.header-container
+  .ui.raised.very.padded.text.container.segment
+    .ui.grid
+      .row
+        .three.wide.column
+          %img{src: '/images/jeremy-jousse-cv-picture.jpg', class: 'ui circular image'}
+        .thirteen.wide.column
+          %h1.ui.header Jérémy Jousse
+          = t(:job_title, scope: 'cv')
+          .ui.grid
+            .row
+              .five.wide.column
+                = t(:birth_date, scope: 'cv')
+              .eleven.wide.column
+                = I18n.localize('1978-01-09'.to_date, format: :long)
+              .five.wide.column
+                = t(:citizenship, scope: 'cv')
+              .eleven.wide.column
+                = t(:citizenship_detail, scope: 'cv')
+              .five.wide.column
+                = t(:marital_status, scope: 'cv')
+              .eleven.wide.column
+                = t(:marital_status_detail, scope: 'cv')
+              .five.wide.column
+                Email
+              .eleven.wide.column
+                jeremy.jousse@free.fr
+              .five.wide.column
+                = t(:phone, scope: 'cv')
+              .eleven.wide.column
+                + 33 6 51 81 59 89
+              .five.wide.column
+                = t(:address, scope: 'cv')
+              .eleven.wide.column
+                12 allée de Chenonceaux, 59650 Villeneuve d'Ascq, France
+.ui.stripe.text.center.aligned.container
+  %a.ui.label{href: 'https://github.com/jeremyjousse', target: '_blank'}
+    %i.github.icon
+    Github
+  %a.ui.label{href: 'https://www.linkedin.com/in/jérémy-jousse-27a22310', target: '_blank'}
+    %i.linkedin.icon
+    Linkedin
+.ui.text.container
+  = t(:summary, scope: 'cv')
+.ui.text.center.aligned.container
+  %a.ui.basic.button{href: '/pdf/cv-jeremy-jousse.pdf', target: '_blank'}
+    #{t(:download_cv, scope: 'cv')}
+%h2.ui.horizontal.divider.header.dash_header
+  = t(:professional_skills, scope: 'cv.skills')
+.ui.text.container
+  .ui.grid
+    - data.cv.skills.each do |skill_name, skill_percent|
+      .eight.wide.column
+        .ui.teal.progress{"data-percent" => "#{skill_percent}"}
+          .bar
+          .label #{t(skill_name.to_s, scope: 'cv.skills')}
+%h2.ui.horizontal.divider.header.dash_header
+  = t(:experiences, scope: 'cv.experiences')
+.ui.text.container
+  .ui.one.column.grid
+    - data.cv.experiences.each do |experience_name, experience|
+      .column
+        .ui.raised.segment
+          %a.ui.red.ribbon.label #{experience.begin} - #{experience.end}
+          %span #{t(:name, scope: 'cv.experiences.' + experience_name)}
+          %p #{t(:job, scope: 'cv.experiences.' + experience_name)}
+          %p #{t(:detail, scope: 'cv.experiences.' + experience_name)}
+%h2.ui.horizontal.divider.header.dash_header
+  = t(:education, scope: 'cv.educations')
+.ui.text.container
+  .ui.one.column.grid
+    - data.cv.educations.each do |education_name, education_date|
+      .column
+        .ui.raised.segment
+          %a.ui.red.ribbon.label #{education_date.to_s}
+          %span #{t(:name, scope: 'cv.educations.' + education_name)}
+          %p #{t(:location, scope: 'cv.educations.' + education_name)}
+%h2.ui.horizontal.divider.header.dash_header
+  = t(:interests, scope: 'cv.interests')
+.ui.text.center.aligned.container
+  - data.cv.interests.each do |interest|
+    %a.ui.label.interest{data: {title: "Elliot Fu", content: "Elliot has been a member since July 2012"} }
+      %i{class: 'flaticon-' + interest }
+      #{interest}
+%h2.ui.horizontal.divider.header.dash_header
+  = t(:contact_me, scope: 'cv')
+.ui.raised.very.padded.text.container.segment
+  .ui.grid
+    .row
+      .three.wide.column
+        address
+      .thirteen.wide.column
+        Villeneuve d'Ascq - Nord - France
+      .three.wide.column
+        Email
+      .thirteen.wide.column
+        jeremy.jousse@free.fr
+      .three.wide.column
+        Phone
+      .thirteen.wide.column
+        +33 6 51 81 59 89

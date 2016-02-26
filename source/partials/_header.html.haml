@@ -1,0 +1,15 @@
+%header.nav-header#nav-header{ data: { top: 'transform:translateY(0px);', 'top-bottom': 'transform:translateY(-150px)', anchor: { target: '#intro-wrap' }}}
+  .container
+    .row
+      .col-md-12
+        %nav.navbar
+          %a.navbar-brand{ href: t(:home_link, scope: 'menu') }
+            -# = image_tag '/svg/GrM.svg', class: 'grm'
+            .grm
+          %ul.nav.navbar-nav.pull-xs-right
+            %li.nav-item
+              %a.nav-link{ href: t(:posts_link, scope: 'menu') }
+                = t(:posts, scope: 'menu')
+            %li.nav-item
+              %a.nav-link{ href: t(:about_link, scope: 'menu') }
+                = t(:about, scope: 'menu')

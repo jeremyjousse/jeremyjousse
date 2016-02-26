@@ -1,0 +1,65 @@
+---
+title: About Jérémy Jousse
+---
+= partial 'partials/global_intro'
+%section
+  .container
+    .row
+      .col-md-2.col-md-offset-2
+        = image_tag 'jeremy-jousse-cv-picture.jpg', class: 'img-fluid img-circle'
+      .col-md-6
+        %h2.section-title
+          = t(:passionate_web_developer, scope: 'about')
+        %p
+          = t(:passionate_web_developer_detail, scope: 'about')
+        %a.btn.btn-primary-outline{ href: '/pdf/cv-jeremy-jousse.pdf' }
+          = t(:download_my_cv, scope: 'about')
+%section.professional-skills
+  .container
+    .row
+      .col-md-8.col-md-offset-2.text-xs-center
+        %h2.section-title
+          = t(:professional_skills, scope: 'cv.skills')
+      .col-md-12
+        .row
+          - data.cv.skills.each do |skill_name, skill_percent|
+            .col-md-4.professional-skill
+              %progress.progress{ value: "#{skill_percent}", max: "100"}
+                #{skill_percent}
+              .skill-name
+                #{t(skill_name.to_s, scope: 'cv.skills')}
+%section.experiences
+  .container
+    .row
+      .col-md-8.col-md-offset-2.text-xs-center
+        %h2.section-title
+          = t(:experiences, scope: 'cv.experiences')
+    .row
+      .col-md-12
+        - data.cv.experiences.each do |experience_name, experience|
+          .row.experience
+            .col-md-2
+              = image_tag 'professional-experiences/' + experience_name + '.png', class: 'img-fluid img-circle'
+            .col-md-10
+              %time
+                - if experience.end != 'now'
+                  #{I18n.localize(experience.begin, format: :long)} - #{I18n.localize(experience.end, format: :long)}
+                - else
+                  #{t(:since, scope: 'cv')} #{I18n.localize(experience.begin, format: :long)}
+              .name #{t(:name, scope: 'cv.experiences.' + experience_name)}
+              .job #{t(:job, scope: 'cv.experiences.' + experience_name)}
+              %p #{t(:detail, scope: 'cv.experiences.' + experience_name)}
+%section.interests
+  .container
+    .row
+      .col-md-8.col-md-offset-2.text-xs-center
+        %h2.section-title
+          = t(:interests, scope: 'cv.interests')
+    .row
+      - data.cv.interests.each do |interest|
+        .col-md-2
+          .card.card-block
+            .card-title.text-xs-center
+              #{interest}
+            .card-text.text-xs-center
+              %i{class: 'flaticon-' + interest }
