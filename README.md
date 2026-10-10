@@ -17,5 +17,5 @@
 ## Programming Languages
 
 <!-- markdownlint-disable MD033 -->
-<img src = 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rust/rust-original.svg' width='30' alt="Rust"/> <img src = 'https://github.com/jeremyjousse/jeremyjousse/blob/master/images/typescript.svg' width='30' alt="Typescript"/> <img src = 'https://github.com/jeremyjousse/jeremyjousse/blob/master/images/git.svg' width='30' alt="Git"/> <img src = 'https://github.com/jeremyjousse/jeremyjousse/blob/master/images/kubernetes.svg' width='30' alt="Kubernetes"/> <img src = 'https://github.com/jeremyjousse/jeremyjousse/blob/master/images/sql.svg' width='30' alt="SQL"/>
+<picture><source media="(prefers-color-scheme: dark)" srcset="images/rust-dark.svg"><img src="images/rust.svg" width="30" alt="Rust"></picture> <img src="images/typescript.svg" width="30" alt="TypeScript"> <img src="images/git.svg" width="30" alt="Git"> <img src="images/kubernetes.svg" width="30" alt="Kubernetes"> <img src="images/sql.svg" width="30" alt="SQL">
 <!-- markdownlint-enable MD033 -->
