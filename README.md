@@ -17,5 +17,5 @@
 ## Programming Languages
 
 <!-- markdownlint-disable MD033 -->
-<img src = 'https://github.com/jeremyjousse/jeremyjousse/blob/master/images/rust.svg' width='30' alt="Rust"/> <img src = 'https://github.com/jeremyjousse/jeremyjousse/blob/master/images/typescript.svg' width='30' alt="Typescript"/> <img src = 'https://github.com/jeremyjousse/jeremyjousse/blob/master/images/git.svg' width='30' alt="Git"/> <img src = 'https://github.com/jeremyjousse/jeremyjousse/blob/master/images/kubernetes.svg' width='30' alt="Kubernetes"/> <img src = 'https://github.com/jeremyjousse/jeremyjousse/blob/master/images/sql.svg' width='30' alt="SQL"/>
+<img src = 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rust/rust-original.svg' width='30' alt="Rust"/> <img src = 'https://github.com/jeremyjousse/jeremyjousse/blob/master/images/typescript.svg' width='30' alt="Typescript"/> <img src = 'https://github.com/jeremyjousse/jeremyjousse/blob/master/images/git.svg' width='30' alt="Git"/> <img src = 'https://github.com/jeremyjousse/jeremyjousse/blob/master/images/kubernetes.svg' width='30' alt="Kubernetes"/> <img src = 'https://github.com/jeremyjousse/jeremyjousse/blob/master/images/sql.svg' width='30' alt="SQL"/>
 <!-- markdownlint-enable MD033 -->
