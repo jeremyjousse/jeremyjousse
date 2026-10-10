@@ -23,5 +23,5 @@
 ## ⚙️ Tech Stack & CLI
 
 <!-- markdownlint-disable MD033 -->
-<a href="https://mise.jdx.dev/" target="_blank"><img src="images/mise.svg" width="30" alt="Mise" /></a> <a href="https://brew.sh/" target="_blank"><img src="images/homebrew.svg" width="30" alt="Homebrew"/></a> <a href="https://starship.rs/" target="_blank"><img src="images/starship.png" width="30" alt="Starship" /></a> <a href="https://ghostty.org/" target="_blank"><img src="images/ghostty.svg" width="30" alt="Ghostty" /></a>
+<a href="https://mise.jdx.dev/" target="_blank"><img src="images/mise.svg" width="30" alt="Mise" /></a> <a href="https://brew.sh/" target="_blank"><img src="images/homebrew.svg" width="30" alt="Homebrew"/></a> <a href="https://starship.rs/" target="_blank"><img src="images/starship.png" width="30" alt="Starship" /></a> <a href="https://ghostty.org/" target="_blank"><img src="images/ghostty.svg" width="30" alt="Ghostty" /></a> <a href="https://ghostty.org/" target="_blank"><img src="images/vscode.svg" width="30" alt="VSCode" /></a>
 <!-- markdownlint-enable MD033 -->
